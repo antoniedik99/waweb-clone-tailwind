@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatsApp Web Clone</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.css">
+    <style>
+        .chat-background {
+            background-image: url('./bg-chat.png');
+            /* Ganti dengan URL gambar latar belakang Anda */
+            background-size: cover;
+            /* Mengatur ukuran gambar agar menutupi seluruh area */
+            background-repeat: no-repeat;
+            /* Mencegah gambar diulang */
+            background-position: center;
+            /* Memposisikan gambar di tengah */
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100 flex h-screen">
+
+    <!-- Sidebar -->
+    <div class="w-1/3 bg-white border-r border-gray-300">
+        <div class="p-4 border-b border-gray-300">
+            <h1 class="text-xl font-bold">WhatsApp</h1>
+        </div>
+        <div class="p-4">
+            <input type="text" placeholder="Search or start new chat" class="w-full p-2 border border-gray-300 rounded">
+        </div>
+        <div class="overflow-y-auto h-96">
+            <div
+                class="p-4 border-b border-gray-300 cursor-pointer hover:bg-gray-100 flex justify-between items-center">
+                <div>
+                    <h2 class="font-bold">John Doe</h2>
+                    <p class="text-gray-600">Hello, how are you?</p>
+                </div>
+                <div class="text-right relative">
+                    <p class="text-gray-500 text-sm">10:30 AM</p>
+                    <p class="text-green-500 text-xs">✓✓</p>
+                </div>
+            </div>
+            <div
+                class="p-4 border-b border-gray-300 cursor-pointer hover:bg-gray-100 flex justify-between items-center">
+                <div>
+                    <h2 class="font-bold">Jane Smith</h2>
+                    <p class="text-gray-600">See you later!</p>
+                </div>
+                <div class="text-right relative">
+                    <p class="text-gray-500 text-sm">10:32 AM</p>
+                    <span
+                        class="bg-red-500 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">1</span>
+                    <!-- Badge untuk pesan belum terbaca -->
+                </div>
+            </div>
+            <div
+                class="p-4 border-b border-gray-300 cursor-pointer hover:bg-gray-100 flex justify-between items-center">
+                <div>
+                    <h2 class="font-bold">Alice Johnson</h2>
+                    <p class="text-gray-600">Let's meet up!</p>
+                </div>
+                <div class="text-right relative">
+                    <p class="text-gray-500 text-sm">10:35 AM</p>
+                    <p class="text-red-500 text-xs">✓</p> <!-- Status belum dibaca -->
+                    <!-- Tidak ada badge karena sudah dibaca -->
+                </div>
+            </div>
+            <!-- Tambahkan lebih banyak kontak di sini -->
+        </div>
+    </div>
+
+    <!-- Chat Area -->
+    <div class="flex-1 bg-slate-600 flex flex-col">
+        <div class="p-4 border-b border-gray-300">
+            <h1 class="text-xl font-bold">John Doe</h1>
+        </div>
+        <div id="chat-container" class="overflow-y-auto flex-1 p-4 chat-background">
+            <div class="mb-4">
+                <div class="text-center text-gray-500 text-sm my-2">October 1, 2023</div> <!-- Tanggal -->
+                <div class="bg-gray-200 p-2 rounded-lg max-w-[65%] sm:max-w-full inline-block">
+                    Hi there!
+                </div>
+                <div class="text-gray-500 text-xs mt-1">10:30 AM <span class="text-green-500">✓✓</span></div>
+                <!-- Waktu dan status sudah dibaca -->
+            </div>
+            <div class="mb-4 text-right">
+                <div class="bg-green-500 text-white p-2 rounded-lg max-w-[65%] sm:max-w-full inline-block">
+                    Hello! How can I help you?
+                </div>
+                <div class="text-gray-500 text-xs mt-1">10:31 AM <span class="text-green-500">✓✓</span></div>
+                <!-- Waktu dan status sudah dibaca -->
+            </div>
+
+            <div class="mb-4">
+                <div class="text-center text-gray-500 text-sm my-2">October 2, 2023</div> <!-- Tanggal -->
+                <div class="bg-gray-200 p-2 rounded-lg max-w-[65%] sm:max-w-full inline-block">
+                    I have a question about your services.
+                </div>
+                <div class="text-gray-500 text-xs mt-1">10:32 AM <span class="text-red-500">✓</span></div>
+                <!-- Waktu dan status belum dibaca -->
+            </div>
+            <div class="mb-4">
+                <div class="bg-gray-200 p-2 rounded-lg max-w-[65%] sm:max-w-full inline-block">
+                    Can you provide more details?
+                </div>
+                <div class="text-gray-500 text-xs mt-1">10:33 AM <span class="text-red-500">✓</span></div>
+                <!-- Waktu dan status belum dibaca -->
+            </div>
+            <!-- Tambahkan lebih banyak pesan di sini -->
+            <div class="mb-4">
+                <div class="text-center text-gray-500 text-sm my-2">October 1, 2023</div> <!-- Tanggal -->
+                <div class="bg-gray-200 p-2 rounded-lg max-w-[65%] sm:max-w-full inline-block">
+                    Hi there!
+                </div>
+                <div class="text-gray-500 text-xs mt-1">10:30 AM <span class="text-green-500">✓✓</span></div>
+                <!-- Waktu dan status sudah dibaca -->
+            </div>
+            <div class="mb-4 text-right">
+                <div class="bg-green-500 text-white p-2 rounded-lg max-w-[65%] sm:max-w-full inline-block">
+                    Hello! How can I help you?
+                </div>
+                <div class="text-gray-500 text-xs mt-1">10:31 AM <span class="text-green-500">✓✓</span></div>
+                <!-- Waktu dan status sudah dibaca -->
+            </div>
+
+            <div class="mb-4">
+                <div class="text-center text-gray-500 text-sm my-2">October 2, 2023</div> <!-- Tanggal -->
+                <div class="bg-gray-200 p-2 rounded-lg max-w-[65%] sm:max-w-full inline-block">
+                    I have a question about your services.
+                </div>
+                <div class="text-gray-500 text-xs mt-1">10:32 AM <span class="text-red-500">✓</span></div>
+                <!-- Waktu dan status belum dibaca -->
+            </div>
+            <div class="mb-4">
+                <div class="bg-gray-200 p-2 rounded-lg max-w-[65%] sm:max-w-full inline-block">
+                    Can you provide more details?
+                </div>
+                <div class="text-gray-500 text-xs mt-1">10:33 AM <span class="text-red-500">✓</span></div>
+                <!-- Waktu dan status belum dibaca -->
+            </div>
+            <div class="mb-4">
+                <div class="text-center text-gray-500 text-sm my-2">October 1, 2023</div> <!-- Tanggal -->
+                <div class="bg-gray-200 p-2 rounded-lg max-w-[65%] sm:max-w-full inline-block">
+                    Hi there!
+                </div>
+                <div class="text-gray-500 text-xs mt-1">10:30 AM <span class="text-green-500">✓✓</span></div>
+                <!-- Waktu dan status sudah dibaca -->
+            </div>
+            <div class="mb-4 text-right">
+                <div class="bg-green-500 text-white p-2 rounded-lg max-w-[65%] sm:max-w-full inline-block">
+                    Hello! How can I help you?
+                </div>
+                <div class="text-gray-500 text-xs mt-1">10:31 AM <span class="text-green-500">✓✓</span></div>
+                <!-- Waktu dan status sudah dibaca -->
+            </div>
+
+            <div class="mb-4">
+                <div class="text-center text-gray-500 text-sm my-2">October 2, 2023</div> <!-- Tanggal -->
+                <div class="bg-gray-200 p-2 rounded-lg max-w-[65%] sm:max-w-full inline-block">
+                    I have a question about your services.
+                </div>
+                <div class="text-gray-500 text-xs mt-1">10:32 AM <span class="text-red-500">✓</span></div>
+                <!-- Waktu dan status belum dibaca -->
+            </div>
+            <div class="mb-4">
+                <div class="bg-gray-200 p-2 rounded-lg max-w-[65%] sm:max-w-full inline-block">
+                    Can you provide more details?
+                </div>
+                <div class="text-gray-500 text-xs mt-1">10:33 AM <span class="text-red-500">✓</span></div>
+                <!-- Waktu dan status belum dibaca -->
+            </div>
+            <div class="mb-4">
+                <div class="text-center text-gray-500 text-sm my-2">October 1, 2023</div> <!-- Tanggal -->
+                <div class="bg-gray-200 p-2 rounded-lg max-w-[65%] sm:max-w-full inline-block">
+                    Hi there!
+                </div>
+                <div class="text-gray-500 text-xs mt-1">10:30 AM <span class="text-green-500">✓✓</span></div>
+                <!-- Waktu dan status sudah dibaca -->
+            </div>
+            <div class="mb-4 text-right">
+                <div class="bg-green-500 text-white p-2 rounded-lg max-w-[65%] sm:max-w-full inline-block">
+                    Hello! How can I help you?
+                </div>
+                <div class="text-gray-500 text-xs mt-1">10:31 AM <span class="text-green-500">✓✓</span></div>
+                <!-- Waktu dan status sudah dibaca -->
+            </div>
+
+            <div class="mb-4">
+                <div class="text-center text-gray-500 text-sm my-2">October 2, 2023</div> <!-- Tanggal -->
+                <div class="bg-gray-200 p-2 rounded-lg max-w-[65%] sm:max-w-full inline-block">
+                    I have a question about your services.
+                </div>
+                <div class="text-gray-500 text-xs mt-1">10:32 AM <span class="text-red-500">✓</span></div>
+                <!-- Waktu dan status belum dibaca -->
+            </div>
+            <div class="mb-4">
+                <div class="bg-gray-200 p-2 rounded-lg max-w-[65%] sm:max-w-full inline-block">
+                    Can you provide more details?
+                </div>
+                <div class="text-gray-500 text-xs mt-1">10:33 AM <span class="text-red-500">✓</span></div>
+                <!-- Waktu dan status belum dibaca -->
+            </div>
+            <div class="mb-4">
+                <div class="text-center text-gray-500 text-sm my-2">October 1, 2023</div> <!-- Tanggal -->
+                <div class="bg-gray-200 p-2 rounded-lg max-w-[65%] sm:max-w-full inline-block">
+                    Hi there!
+                </div>
+                <div class="text-gray-500 text-xs mt-1">10:30 AM <span class="text-green-500">✓✓</span></div>
+                <!-- Waktu dan status sudah dibaca -->
+            </div>
+            <div class="mb-4 text-right">
+                <div class="bg-green-500 text-white p-2 rounded-lg max-w-[65%] sm:max-w-full inline-block">
+                    Hello! How can I help you?
+                </div>
+                <div class="text-gray-500 text-xs mt-1">10:31 AM <span class="text-green-500">✓✓</span></div>
+                <!-- Waktu dan status sudah dibaca -->
+            </div>
+
+            <div class="mb-4">
+                <div class="text-center text-gray-500 text-sm my-2">October 2, 2023</div> <!-- Tanggal -->
+                <div class="bg-gray-200 p-2 rounded-lg max-w-[65%] sm:max-w-full inline-block">
+                    I have a question about your services.
+                </div>
+                <div class="text-gray-500 text-xs mt-1">10:32 AM <span class="text-red-500">✓</span></div>
+                <!-- Waktu dan status belum dibaca -->
+            </div>
+            <div class="mb-4">
+                <div class="bg-gray-200 p-2 rounded-lg max-w-[65%] sm:max-w-full inline-block">
+                    Can you provide more details?
+                </div>
+                <div class="text-gray-500 text-xs mt-1">10:33 AM <span class="text-red-500">✓</span></div>
+                <!-- Waktu dan status belum dibaca -->
+            </div>
+        </div>
+        <!-- Preview Area -->
+        <div id="file-preview" class="hidden mb-2 flex items-center justify-between">
+            <div class="flex items-center">
+                <span id="file-icon" class="text-2xl mr-2"></span>
+                <img id="image-preview" class="w-24 h-24 object-cover rounded-lg hidden" alt="Preview" />
+                <span id="doc-preview" class="text-gray-600"></span>
+            </div>
+            <button id="remove-button" class="ml-2 bg-red-500 text-white p-1 rounded hover:bg-red-600"
+                onclick="removeAttachment()">
+                <i class="fas fa-times"></i> <!-- Ikon X dari Font Awesome -->
+            </button>
+        </div>
+
+
+        <div class="p-4 border-t border-gray-300 flex items-center">
+            <div class="flex items-center">
+                <input type="file" id="file-input" class="hidden" accept="image/*,.pdf,.doc,.docx"
+                    onchange="previewFile()">
+                <label for="file-input" class="cursor-pointer bg-gray-200 p-2 rounded-lg mr-2 hover:bg-gray-300">
+                    <span>📎</span>
+                </label>
+            </div>
+            <input type="text" placeholder="Type a message" class="w-full p-2 border border-gray-300 rounded mr-2">
+            <button class="p-2 rounded-full">
+                <i class="fa-solid fa-paper-plane text-green-500"></i>
+            </button>
+        </div>
+    </div>
+    <script>
+        window.onload = function () {
+            const chatContainer = document.getElementById('chat-container');
+            if (chatContainer) {
+                chatContainer.scrollTop = chatContainer.scrollHeight;
+            }
+        };
+    </script>
+    <script>
+        function previewFile() {
+            const fileInput = document.getElementById('file-input');
+            const filePreview = document.getElementById('file-preview');
+            const imagePreview = document.getElementById('image-preview');
+            const docPreview = document.getElementById('doc-preview');
+            const fileIcon = document.getElementById('file-icon');
+
+            const file = fileInput.files[0];
+            if (file) {
+                const fileType = file.type;
+                const reader = new FileReader();
+
+                filePreview.classList.remove('hidden');
+
+                if (fileType.startsWith('image/')) {
+                    reader.onload = function (e) {
+                        imagePreview.src = e.target.result;
+                        imagePreview.classList.remove('hidden');
+                        docPreview.classList.add('hidden');
+                        fileIcon.classList.add('hidden'); // Sembunyikan ikon
+                    };
+                    reader.readAsDataURL(file);
+                } else {
+                    imagePreview.classList.add('hidden');
+                    docPreview.textContent = `File: ${file.name} (${fileType})`;
+                    docPreview.classList.remove('hidden');
+
+                    // Menentukan ikon berdasarkan jenis file
+                    if (fileType === 'application/pdf') {
+                        fileIcon.textContent = '📄'; // Ikon PDF
+                    } else if (fileType.startsWith(
+                            'application/vnd.openxmlformats-officedocument.wordprocessingml.document') ||
+                        fileType.startsWith('application/msword')) {
+                        fileIcon.textContent = '📝'; // Ikon Word
+                    } else {
+                        fileIcon.textContent = '📁'; // Ikon default untuk dokumen
+                    }
+                    fileIcon.classList.remove('hidden'); // Tampilkan ikon
+                }
+            } else {
+                filePreview.classList.add('hidden');
+            }
+        }
+
+        function removeAttachment() {
+            const fileInput = document.getElementById('file-input');
+            const filePreview = document.getElementById('file-preview');
+            const imagePreview = document.getElementById('image-preview');
+            const docPreview = document.getElementById('doc-preview');
+            const fileIcon = document.getElementById('file-icon');
+
+            // Reset input file
+            fileInput.value = '';
+            // Sembunyikan preview
+            filePreview.classList.add('hidden');
+            imagePreview.classList.add('hidden');
+            docPreview.classList.add('hidden');
+            fileIcon.classList.add('hidden');
+        }
+    </script>
+</body>
+
+</html>
